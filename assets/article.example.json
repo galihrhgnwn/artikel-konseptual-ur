@@ -1,0 +1,83 @@
+{
+  "_catatan": "CONTOH STRUKTUR SAJA. Jangan disalin isinya. Teks dan rujukan di bawah hanya untuk memperlihatkan bidang; dua rujukan nyata dipakai sebagai contoh bentuk pengisian metadata.",
+  "header": "Artikel Konseptual – Mata Kuliah Bahasa Indonesia Kelas E1 Tempuk Manggis 9",
+  "footer": "Universitas Riau – Bahasa Indonesia 2026/2027",
+
+  "judul": "[Judul maksimal 12 kata sesuai program studi]",
+  "penulis": "[Nama Penulis]",
+  "afiliasi": "[Nama Program Studi], Universitas Riau",
+  "email": "[email]@student.unri.ac.id",
+
+  "abstrak": "[100–150 kata, satu alinea, tanpa sitasi: latar masalah 1–2 kalimat; tujuan; pendekatan telaah literatur; argumen utama; simpulan singkat.]",
+  "kata_kunci": ["konsep 1", "konsep 2", "konsep 3"],
+  "abstract": "[English abstract, 100–150 words, one paragraph, no citations.]",
+  "keywords": ["concept 1", "concept 2", "concept 3"],
+
+  "pendahuluan": [
+    "[Paragraf 1: latar belakang memadai, maksimal satu paragraf.]",
+    "[Paragraf 2: tinjauan literatur sangat singkat, dikelompokkan per topik, mis. (Penulis A, 2021; Penulis B, 2022). Batasan penelitian terdahulu dan kebaruan artikel. Kalimat terakhir: tujuan penulisan, mis. 'Tujuan artikel ini ialah ...'.]"
+  ],
+
+  "pembahasan": {
+    "pengantar": ["[Ringkasan singkat argumen utama, bukan ringkasan seluruh literatur.]"],
+    "subjudul": [
+      {
+        "judul": "Konsep dan Perkembangan [Topik]",
+        "paragraf": ["[Paragraf berisi *istilah asing* miring bila perlu, dengan sitasi (Andriani *et al.*, 2023).]"]
+      },
+      {
+        "judul": "Analisis [Masalah] pada Bidang [Program Studi]",
+        "paragraf": ["[Bandingkan sumber; jelaskan mengapa; sebut persamaan dan perbedaan pandangan. Hasil ringkas disajikan pada Tabel 1.]"],
+        "tabel": {
+          "judul": "Judul tabel",
+          "kepala": ["Aspek", "Temuan"],
+          "baris": [["isi 1", "isi 2"], ["isi 3", "isi 4"]],
+          "lebar_cm": [5.0, 11.6]
+        }
+      },
+      {
+        "judul": "Implikasi bagi [Bidang Program Studi]",
+        "paragraf": ["[Paragraf.]"],
+        "gambar": { "berkas": "gambar1.png", "judul": "Judul gambar", "lebar_cm": 11 }
+      }
+    ]
+  },
+
+  "simpulan": "[Satu paragraf 80–100 kata; menjawab tujuan; tanpa sitasi, tanpa sumber atau gagasan baru; sertakan penerapan dan saran kajian lanjutan.]",
+  "ucapan_terima_kasih": "Penulis mengucapkan terima kasih kepada dosen pengampu Mata Kuliah Bahasa Indonesia atas arahan selama penyusunan artikel ini.",
+
+  "rujukan": [
+    {
+      "authors": ["Andriani, D.", "Abdulkarim, A.", "Insani, N. N."],
+      "year": 2023,
+      "title": "Implementasi program Kampus Mengajar dalam pembentukan karakter tanggung jawab mahasiswa",
+      "journal": "Jurnal Ilmiah Mimbar Demokrasi",
+      "volume": "23",
+      "issue": "1",
+      "pages": "273–284",
+      "doi": "10.21009/jimd.v23i1.37963",
+      "type": "artikel-riset",
+      "bahasa": "id",
+      "verified": true,
+      "verified_url": "https://journal.unj.ac.id/unj/index.php/jmb/article/view/37963",
+      "verified_on": "2026-11-17",
+      "klaim": "Contoh: program kampus mengajar dikaitkan dengan pembentukan karakter tanggung jawab mahasiswa."
+    },
+    {
+      "authors": ["Ardianti, A. E.", "Hasan, B. F.", "Millah, N. F.", "Asizah, S. N.", "Blora, V. F. G.", "Nurhayati, E."],
+      "year": 2023,
+      "title": "Pengaruh bahasa Indonesia terhadap pendidikan karakter mahasiswa DIII Keperawatan Sutopo Surabaya",
+      "journal": "Bersatu: Jurnal Pendidikan Bhinneka Tunggal Ika",
+      "volume": "1",
+      "issue": "6",
+      "pages": "93–110",
+      "doi": "10.51903/bersatu.v1i6.445",
+      "type": "artikel-riset",
+      "bahasa": "id",
+      "verified": true,
+      "verified_url": "https://journal.politeknik-pratama.ac.id/index.php/bersatu/article/view/445",
+      "verified_on": "2026-11-17",
+      "klaim": "Contoh: bahasa Indonesia dalam kaitannya dengan pendidikan karakter mahasiswa."
+    }
+  ]
+}
