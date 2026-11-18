@@ -12,7 +12,7 @@ Kolom **Ditegakkan oleh**: `build` = otomatis oleh build_docx.py; `check` = dipe
 | A3 | Header: teks merah tebal rata kanan "Artikel Konseptual – Mata Kuliah Bahasa Indonesia Kelas E1 Tempuk Manggis 9" + kotak nomor halaman abu-abu (7F7F7F, angka putih), garis abu-abu (D9D9D9) di bawahnya. Nomor halaman memakai field PAGE sungguhan (di PDF template semua halaman tercetak "2" karena artefak ekspor). Teks header diubah lewat `header` di article.json bila kelas pengguna berbeda | build |
 | A4 | Footer: bilah abu gelap (404040), teks putih Arial 9 rata tengah "Universitas Riau – Bahasa Indonesia 2026/2027", garis biru (4F81BD) di atas bilah | build |
 | A5 | Bahasa dokumen diset id-ID (pemeriksa ejaan Indonesia) | build |
-| A6 | Lato tidak terpasang di mesin pembuat → nama font tetap Lato di berkas; pratinjau memakai Carlito. Beri tahu pengguna | build |
+| A6 | Lato bawaan skill di `assets/fonts` (Regular, Italic, Bold, BoldItalic; OFL) dipasang oleh `install_fonts.sh` agar pratinjau akurat; nama font di berkas tetap Lato. Ingatkan pengguna memasang Lato di komputernya | build |
 
 ## B. Judul, penulis, abstrak
 

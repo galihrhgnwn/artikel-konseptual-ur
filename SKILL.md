@@ -23,7 +23,7 @@ Daftar lengkap ketentuan template (± 70 butir kecil, dengan penanda siapa yang 
 ## Alat yang dibutuhkan
 
 - Pencarian web + pembuka halaman (WebSearch, WebFetch). Tanpa ini, katakan terus terang bahwa rujukan tidak bisa diverifikasi dan jangan membuat rujukan.
-- Python 3 + `python-docx` (membangun .docx). `soffice` + `pdftoppm` opsional untuk pratinjau.
+- Python 3 + `python-docx` (membangun .docx). `soffice` + `pdftoppm` opsional untuk pratinjau. Font Lato tersedia di `assets/fonts` (lisensi OFL); jangan mencoba mengunduh font.
 - Shell biasanya TIDAK punya akses internet; jangan mencoba curl/pip. Detail dan cara kerja yang sudah teruji: `references/sumber-indonesia.md`.
 
 ## Langkah 0 — Tanya: artikel baru atau revisi?
@@ -87,4 +87,4 @@ Judul ≤ 12 kata · Abstrak dan Abstract 100–150 kata, satu alinea · Kata ku
 
 - Sumber berbahasa Indonesia untuk topik terlalu sedikit → persempit/ubah sudut topik, jangan menambah sumber berbahasa Inggris tanpa izin pengguna; tawarkan pilihan bila perlu.
 - Alat web tidak tersedia → berhenti di tahap kerangka dan kandidat kata kunci pencarian; katakan jelas bahwa daftar pustaka belum bisa dibuat secara jujur.
-- Lato tidak ada di mesin → tetap bernama Lato di berkas; pratinjau memakai Carlito.
+- Lato tidak ada di mesin → jalankan `bash scripts/install_fonts.sh` (memasang Lato bawaan dari `assets/fonts`, tanpa internet); `render_preview.sh` melakukannya otomatis. Berkas .docx tetap bernama Lato. Pengguna tetap perlu memasang Lato di komputernya sendiri (sertakan folder `assets/fonts` atau tautan Google Fonts).
