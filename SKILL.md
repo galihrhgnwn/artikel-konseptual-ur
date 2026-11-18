@@ -1,11 +1,11 @@
 ---
 name: artikel-konseptual-ur
-description: Menulis artikel konseptual (telaah literatur tanpa data lapangan) untuk Mata Kuliah Bahasa Indonesia Universitas Riau sesuai template resmi. Semua rujukan berbahasa Indonesia, dicari dan diverifikasi lewat alat web, gaya APA 7th, abstrak dwibahasa, keluaran .docx berformat template (Lato, header/footer). Gunakan saat pengguna meminta artikel konseptual, artikel ilmiah, atau tugas artikel Bahasa Indonesia berdasarkan template Universitas Riau.
+description: Menulis artikel konseptual baru (telaah literatur tanpa data lapangan), atau merevisi artikel yang sudah ada agar sesuai template, untuk Mata Kuliah Bahasa Indonesia Universitas Riau. Semua rujukan berbahasa Indonesia, dicari dan diverifikasi lewat alat web, gaya APA 7th, abstrak dwibahasa, keluaran .docx berformat template (Lato, header/footer). Gunakan saat pengguna meminta artikel konseptual, artikel ilmiah, atau tugas artikel Bahasa Indonesia berdasarkan template Universitas Riau.
 ---
 
 # Artikel Konseptual — Bahasa Indonesia, Universitas Riau
 
-Menghasilkan satu berkas .docx yang memenuhi seluruh ketentuan template: SATU argumen utama dibela sepanjang tulisan, disusun dari telaah literatur, tanpa data lapangan.
+Menghasilkan satu berkas .docx yang memenuhi seluruh ketentuan template: SATU argumen utama dibela sepanjang tulisan, disusun dari telaah literatur, tanpa data lapangan. Dua mode: **artikel baru** dan **revisi artikel yang sudah ada** (lihat "Langkah 0").
 
 ## Aturan yang tidak boleh dilanggar
 
@@ -26,7 +26,36 @@ Daftar lengkap ketentuan template (± 70 butir kecil, dengan penanda siapa yang 
 - Python 3 + `python-docx` (membangun .docx). `soffice` + `pdftoppm` opsional untuk pratinjau.
 - Shell biasanya TIDAK punya akses internet; jangan mencoba curl/pip. Detail dan cara kerja yang sudah teruji: `references/sumber-indonesia.md`.
 
-## Alur kerja
+## Langkah 0 — Tanya: artikel baru atau revisi?
+
+Pertanyaan PERTAMA, sebelum apa pun (pakai polling, mis. AskUserQuestion, bila tersedia; bila tidak, tanya biasa):
+
+> "Sudah ada artikel sebelumnya yang mau direvisi, atau mau buat artikel baru dari awal?"
+> Pilihan: **Buat artikel baru** | **Revisi artikel yang sudah ada**
+
+- **Artikel baru** → lanjut ke "Alur kerja" di bawah.
+- **Revisi** → minta pengguna mengirim artikel sebelumnya (.docx lebih baik; .pdf atau teks tempel juga boleh) dan, bila ada, catatan/komentar dosen atau permintaan perubahan khusus. Jangan mulai sebelum berkasnya ada. Lalu ikuti "Alur revisi".
+- Bila pengguna sudah jelas menyebut salah satunya di pesan pertama, jangan bertanya lagi.
+
+## Alur revisi (artikel lama → sesuai template)
+
+Tujuan: memperbaiki artikel pengguna agar memenuhi seluruh ketentuan template, TANPA menggantinya menjadi tulisan lain.
+
+1. **Baca berkasnya** (.docx: ekstrak teks dengan python-docx atau skill docx; .pdf: pdftotext; sertakan tabel/gambar). Bila ada komentar dosen, catat sebagai daftar perbaikan wajib.
+2. **Salin ke `article.json`** apa adanya (belum diubah): judul, penulis, afiliasi, abstrak, Pendahuluan, Pembahasan (+ subjudul), Simpulan, ucapan terima kasih, daftar pustaka dipecah ke bidang terstruktur. Tandai istilah asing dengan `*miring*`. Isi `penulis`, `afiliasi`, `email`, kelas dari berkas lama; tanya hanya yang tidak ada.
+3. **Audit**: jalankan `scripts/check_article.py` pada JSON itu, lalu bandingkan manual dengan `references/template-ketentuan.md`. Susun daftar temuan (jumlah kata per bagian, abstrak, struktur Pendahuluan, subjudul, komponen Pembahasan F5 a–c, Simpulan, tabel/gambar, sitasi vs daftar pustaka, kaidah bahasa, format).
+4. **Verifikasi setiap rujukan lama** lewat WebSearch + WebFetch (`references/sumber-indonesia.md`). Rujukan yang nyata dan memenuhi syarat dipertahankan dan diisi metadata verifikasinya. Yang fiktif, tidak ditemukan, berbahasa Inggris, lebih tua dari 10 tahun, atau tidak cocok dengan klaimnya DIGANTI dengan sumber baru yang terverifikasi, dan beri tahu pengguna satu per satu. Pastikan ≥ 15 rujukan dan ≥ 80% artikel riset.
+5. **Perbaiki seperlunya** (prinsip perubahan minimal):
+   - Pertahankan argumen utama, gagasan, urutan, dan gaya penulis pengguna. Ubah hanya yang melanggar template atau komentar dosen.
+   - Bagian kurang kata → tambah isi yang didukung sumber; kelebihan → ringkas bagian yang paling tidak mendukung argumen.
+   - Susun ulang bagian yang salah tempat (mis. ringkasan hasil di Pendahuluan, sumber baru di Simpulan, "A menyatakan…, B menyatakan…" → dikelompokkan per topik).
+   - Tambahkan bagian yang hilang (abstrak Inggris, kata kunci, tujuan di akhir Pendahuluan, bandingan sumber di Pembahasan).
+   - Perbaiki ejaan, kalimat tidak efektif, kata "saya", istilah asing tanpa miring, sitasi tidak sesuai APA 7th.
+   - Jangan mengarang data lapangan; jangan menambahkan klaim yang tidak didukung halaman sumber.
+6. **Periksa ulang** (`check_article.py` sampai tanpa GAGAL), **bangun** `.docx`, dan **pratinjau** seperti langkah 6–8 alur kerja.
+7. **Serahkan** hasil revisi bersama **catatan perubahan** singkat dan jelas: (a) pelanggaran template yang ditemukan dan cara memperbaikinya, (b) rujukan yang dipertahankan, diganti, atau dibuang beserta alasannya, (c) jumlah kata sebelum dan sesudah per bagian, (d) hal yang perlu diputuskan pengguna. Tetap ingatkan pengguna membuka DOI sendiri dan membaca ulang hasil revisi.
+
+## Alur kerja (artikel baru)
 
 1. **Tanya pengguna dulu** (sebelum mencari sumber), hanya data yang belum diketahui dan sesuai isian template. Pakai alat tanya berpilihan (polling, mis. AskUserQuestion) bila tersedia; bila tidak, tanya biasa dalam satu pesan. Jangan menanyakan hal yang sudah disebut pengguna.
    - **Isian ketik bebas** (tanya biasa atau pilihan "Lainnya"): nama penulis, program studi, perguruan tinggi (default Universitas Riau), email corresponding author, kelas untuk header (default: "Kelas E1 Tempuk Manggis 9"), tahun ajaran footer (default: 2026/2027), dan topik.
